@@ -1,0 +1,74 @@
+﻿<Window x:Class="Client.ItCompany"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="ItCompany" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button
+            Name="buttonCreateItCompany"
+            Content="Создать"
+            Width="100" 
+            Margin="10,0,690,0"
+            Click="buttonCreateItCompany_Click"/>
+        <DataGrid
+            x:Name="datagrid"
+            AutoGenerateColumns="False"
+            IsReadOnly="True"
+            Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Название"
+                    Binding="{Binding Name}"
+                    Width="*"/>
+                <DataGridTextColumn
+                    Header="Адрес"
+                    Binding="{Binding Address}"
+                    Width="150"/>
+                <DataGridTextColumn
+                    Header="Телефон"
+                    Binding="{Binding Phone}"
+                    Width="250"/>
+                <DataGridTemplateColumn
+                    Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button
+                                Content="Посмотреть"
+                                x:Name="buttonViewItCompany"
+                                Click="buttonViewItCompany_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn
+                    Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button
+                                Content="Редактировать"
+                                x:Name="buttonEditItCompany"
+                                Click="buttonEditItCompany_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn
+                    Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button
+                                Content="Удалить"
+                                x:Name="buttonDeleteItCompany"
+                                Click="buttonDeleteItCompany_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
